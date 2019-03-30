@@ -1,5 +1,32 @@
+plugins {
+    id 'maven-publish'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+    }
+}
 
 dependencies {
+    annotationProcessor "org.springframework.boot:spring-boot-autoconfigure-processor"
     implementation('org.springframework.boot:spring-boot-starter')
+    compileOnly('org.projectlombok:lombok')
+    annotationProcessor('org.projectlombok:lombok')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+publishing {
+    publications {
+        mavenLocal(MavenPublication) {
+            groupId = 'com.dewafer.starter'
+            artifactId = 'banner-starter'
+            version = project.version
+            
+            from components.java
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
 }
