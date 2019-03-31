@@ -11,6 +11,12 @@ public class StarterAutoConfiguration {
 
     @Bean
     public InitializingBean starterInitializingBean() {
-        return () -> log.info("starter bean initializing...");
+        return () -> log.info("Initializing Banana...\n\n" +
+                " ____                                 /\\/\\   ___       _ _   _       _ _             _   \n" +
+                "| __ )  __ _ _ __   __ _ _ __   __ _  >  <  |_ _|_ __ (_) |_(_) __ _| (_)_______  __| |  \n" +
+                "|  _ \\ / _` | '_ \\ / _` | '_ \\ / _` |_\\/\\ |  | || '_ \\| | __| |/ _` | | |_  / _ \\/ _` |  \n" +
+                "| |_) | (_| | | | | (_| | | | | (_| / __` |  | || | | | | |_| | (_| | | |/ /  __/ (_| |_ \n" +
+                "|____/ \\__,_|_| |_|\\__,_|_| |_|\\__,_\\____/  |___|_| |_|_|\\__|_|\\__,_|_|_/___\\___|\\__,_(_)\n" +
+                "\n");
     }
 }
